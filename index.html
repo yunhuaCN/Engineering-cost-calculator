@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>工程概论大作业</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="titlebar">
+        <div id="window-controls">
+            <button id="min-button" class="control-button" title="最小化"><i class="fas fa-window-minimize"></i></button>
+            <button id="max-button" class="control-button" title="全屏"><i class="fas fa-expand"></i></button>
+            <button id="close-button" class="control-button" title="退出"><i class="fas fa-times"></i></button>
+        </div>
+    </div>
+    <div id="splash-screen" class="fullscreen">
+        <div class="gradient-overlay"></div>
+        <div id="initial-content">
+            <h1>工程概论大作业</h1>
+            <p class="author">作者：xxx</p>
+            <p class="major">专业：xxx</p>
+            <p class="number">学号: xxx</p>
+        </div>
+        <div id="welcome-content">
+            <h2>欢迎使用本软件</h2>
+        </div>
+    </div>
+    <div id="main-content" class="fullscreen hidden">
+        <div class="gradient-overlay"></div>
+        <div class="content-wrapper">
+            <header>
+                <h1>工程概论大作业</h1>
+            </header>
+            <main>
+                <div id="calculator">
+                    <div class="problem-statement">
+                        <h3>题目说明</h3>
+                        <p>2016年某地拟建生产500万吨的水泥厂。调查数据显
+                            示,2012年在该地建成一座年产100万吨的某水泥厂,总投
+                            资为50000万元。水泥的生产能力指数为0.8,自2012年至
+                            2016年每年平均造价指数递增4%。估算拟建水泥厂的静态
+                            投资额。</p>
+                    </div>
+                    <div class="description">
+                        <p>请输入以下参数进行计算
+                            <br/>(本软件可以自由设置参数且添加了图表功能)</p>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="initialYear">初始年份</label>
+                            <input type="number" id="initialYear" name="initialYear" value="2012">
+                        </div>
+                        <div class="input-group">
+                            <label for="finalYear">最终年份</label>
+                            <input type="number" id="finalYear" name="finalYear" value="2016">
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="initialProduction">初始年份年产值：万吨</label>
+                            <input type="number" id="initialProduction" name="initialProduction" value="100">
+                        </div>
+                        <div class="input-group">
+                            <label for="finalProduction">最终年份年产值：万吨</label>
+                            <input type="number" id="finalProduction" name="finalProduction" value="500">
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="totalInvestment">总投资：万元</label>
+                            <input type="number" id="totalInvestment" name="totalInvestment" value="50000">
+                        </div>
+                        <div class="input-group">
+                            <label for="productionCapacityIndex">生产能力指数</label>
+                            <input type="number" id="productionCapacityIndex" name="productionCapacityIndex" value="0.8">
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="annualPriceIndexIncrease">每年平均造价指数递增量：%</label>
+                            <input type="number" id="annualPriceIndexIncrease" name="annualPriceIndexIncrease" value="4">
+                        </div>
+                    </div>
+                    <button id="calculate-button">计算</button>
+                </div>
+                <div id="result-container" class="hidden">
+                    <h3>计算结果</h3>
+                    <p id="result-value"></p>
+                </div>
+                <div id="chart-container">
+                    <canvas id="result-chart"></canvas>
+                </div>
+            </main>
+        </div>
+        <div id="about-button" title="关于">
+            <i class="fas fa-question"></i>
+        </div>
+    </div>
+    
+    <div id="about-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>关于本软件</h2>
+            <p>软件名称：工程概论大作业</p>
+            <p>版本：1.0.0</p>
+            <p>作者：xxx</p>
+            <p>专业：xxx</p>
+            <p>学号: xxx</p>
+            <p>描述：这是一个使用Electron开发的桌面应用程序，用于展示工程概论课程的大作业成果，由于本软件所采用架构方式为Electron，故软件体积较大。本软件现已开源至：
+                <br />https://github.com/yunhuaCN/Engineering-cost-calculator</p>
+            <button id="close-modal">关闭</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
